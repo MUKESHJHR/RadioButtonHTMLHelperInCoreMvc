@@ -1,0 +1,22 @@
+﻿@model RadioButtonHTMLHelperInCoreMvc.Models.Company
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+@*Male : @Html.RadioButton("Gender","Male")
+Femlae : @Html.RadioButton("Gender","Female")*@
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    foreach (var department in Model.Departments())
+    {
+        @Html.RadioButtonFor(d => d.SelectedDepartment, department.Id)
+        @department.Name
+    }
+    <br />
+    <br />
+    <input type="submit" value="Submit"/>
+}
